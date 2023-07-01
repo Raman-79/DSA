@@ -1,0 +1,26 @@
+import java.util.* ;
+import java.io.*; 
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner sc = new Scanner(System.in);
+		int n,k,j,i;
+		n = sc.nextInt();
+		int [] arr = new int [n];
+		for( i = 0;i<n;i++)
+			arr[i] = sc.nextInt();
+		k = sc.nextInt();
+		ArrayList<Integer> lst = new ArrayList<>();
+		
+ 		for( i = k; i<n;i++) lst.add(arr[i]);
+		 for( i = 0;i<k;i++) lst.add(arr[i]);
+		
+	
+		for(Integer num : lst) System.out.print(num +" ");
+		
+	}
+	
+	
+}
