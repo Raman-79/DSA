@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static boolean isPossible(int[] arr, int n) {
+	
+		boolean changed = false; 
+		for(int  i = 0 ;i<n-1;i++){
+			if(arr[i] <= arr[i+1]) continue; //If the condition is true
+			if(changed) return false; //If the value is already changed
+			// i-1 i  i+1
+			// [3, 2 , 4] 
+			if(i==0 || arr[i+1] >= arr[i-1]) arr[i] = arr[i+1];/*If the value of the next element is
+			greater than the previous element or if n = 2  	*/
+			else arr[i+1] = arr[i];
+			changed = true; // change the boolean value as the change  is made
+		}
+		return true;
+	}
+}
