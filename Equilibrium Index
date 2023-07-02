@@ -1,0 +1,27 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		int leftSum = 0;
+		int rightSum = 0;
+
+		//Add all the values of the array to rightSum 
+		for(int  i = 0 ;i<arr.length;i++){
+			rightSum += arr[i];
+		}
+		//Subtract value one by one from the array 
+		for(int  i = 0;i<arr.length;i++){
+			rightSum -= arr[i];
+			// At any point if the values are equal indicates the equillibrim point 
+			if(leftSum == rightSum) return i;
+			//Add the value of the current index to leftSum for taking it closer to the rightSum 
+			else{
+				leftSum += arr[i];
+			}
+
+		}
+		//If no equi point exists
+		return -1;
+	}
+}
