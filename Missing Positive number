@@ -1,0 +1,17 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int firstMissing(int[] arr, int n) {
+		// Write your code here.	
+		
+		Arrays.sort(arr);
+		//Minimum missing positive number 
+		int temp = 1;
+		for(int  i = 0 ;i<n;i++){
+			if(arr[i]<=0) continue;//If the number is non-negative or zero
+			else if(arr[i] == temp) temp++;//If the minimumP no. is already in the array 
+			else break;//The missing number is found 
+		}
+		return temp;
+	}
+}
