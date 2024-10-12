@@ -1,0 +1,47 @@
+BFS :
+public ArrayList<Integer> bfsOfGraph(ArrayList<ArrayList<Integer>> adj) {
+         ArrayList<Integer> res = new ArrayList<>();
+         Queue <Integer> q = new  LinkedList<>();
+         boolean [] visited = new boolean[adj.size()];
+         //Add the first queue
+         q.add(0);
+         visited[0] = true;
+         
+         //Traverse the graph
+         while(!q.isEmpty()){
+             //Get each node 
+             Integer node = q.poll();
+             res.add(node);
+             //Traverse it's neighbours
+             for(Integer it : adj.get(node)){
+                 //If they are not already visited
+                 if(visited[it] == false){
+                 visited[it] = true;
+                 q.add(it);
+                }
+             }
+         }
+         return res;
+    }
+
+DFS:
+ public ArrayList<Integer> dfsOfGraph(ArrayList<ArrayList<Integer>> adj) {
+        // Code here
+         ArrayList<Integer> res = new ArrayList<>();
+         boolean [] visited = new boolean[adj.size()];
+         //Starting with the first node 
+         dfs(0,adj,res,visited);
+         return res;
+    }
+    public void dfs(Integer node,ArrayList<ArrayList<Integer>> adj,ArrayList<Integer> res, boolean[] visited){
+        //Node which is getting visited
+        visited[node] = true;
+        res.add(node);
+        //For all of it's neighbour's 
+        for(Integer it:adj.get(node)){
+            //If the neighbour is not visited then traverse that node and then it's child nodes first
+            if(visited[it] == false){
+                dfs(it,adj,res,visited);
+            }
+        }
+    }
